@@ -1,5 +1,4 @@
 import { Button } from "@gravity-ui/uikit";
-import { Globe } from "@gravity-ui/icons";
 import Link from "next/link";
 import { APP_ROUTES } from "@/app/constants/route.constants";
 export default function Header() {
