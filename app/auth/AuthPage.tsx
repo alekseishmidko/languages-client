@@ -2,33 +2,35 @@
 
 import Header from "../components/Common/Header/Header";
 import React from "react";
-import { Button, Card } from "@gravity-ui/uikit";
-
+import { Button, Text } from "@gravity-ui/uikit";
+import { authFireBase } from "@/app/api/firebase/index";
+import {
+  GoogleAuthProvider,
+  FacebookAuthProvider,
+} from "firebase/auth/cordova";
+import { signInWithPopup } from "firebase/auth";
 const AuthPage = () => {
-  const handleSignIn = () => () => {
-    // signIn(provider);
+  const handleGoogle = async (e) => {
+    const provider = new GoogleAuthProvider();
+    return signInWithPopup(authFireBase, provider);
   };
 
   return (
     <div>
       <Header />
       <div className="flex justify-center items-center min-h-screen ">
-        <div className="bg-white  px-20 pb-20 pt-8 rounded-lg  ">
+        <div className="bg-white  px-20 pb-20 pt-8 rounded-xl ">
           <div className="flex flex-col space-y-6">
-            <h1 className="text-2xl font-bold  text-center mb-8 ">
+            <Text color="dark-primary" variant="display-2" className="mb-4">
               Войти в систему
-            </h1>
-            <Button
-              view="outlined-success"
-              size="xl"
-              onClick={handleSignIn("google")}
-            >
+            </Text>
+            <Button view="outlined-danger" size="xl" onClick={handleGoogle}>
               Войти через Google
             </Button>
             <Button
               view="outlined-info"
               size="xl"
-              onClick={handleSignIn("facebook")}
+              // onClick={handleSignIn("facebook")}
             >
               Войти через Facebook
             </Button>
