@@ -6,6 +6,16 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  /* --gil-color-underlay: rgba(240, 243, 245, 1); */
+}
+.g-root {
+  &_theme_light {
+    @include g-illustrations-colors-light;
+  }
+
+  &_theme_dark {
+    @include g-illustrations-colors-dark;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
