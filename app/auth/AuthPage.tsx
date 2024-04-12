@@ -2,13 +2,15 @@
 
 import Header from "../components/Common/Header/Header";
 import React from "react";
-import { Button, Text } from "@gravity-ui/uikit";
+import { Button, Card, Icon, Text } from "@gravity-ui/uikit";
 import { authFireBase } from "@/app/api/firebase/index";
+
 import {
   GoogleAuthProvider,
   FacebookAuthProvider,
 } from "firebase/auth/cordova";
 import { signInWithPopup } from "firebase/auth";
+import BackButton from "../components/Common/BackButton/BackButton";
 const AuthPage = () => {
   const handleGoogle = async (e) => {
     const provider = new GoogleAuthProvider();
@@ -16,8 +18,9 @@ const AuthPage = () => {
   };
 
   return (
-    <div>
+    <div className="relative">
       <Header />
+      <BackButton />
       <div className="flex justify-center items-center min-h-screen ">
         <div className="bg-white  px-20 pb-20 pt-8 rounded-xl ">
           <div className="flex flex-col space-y-6">
@@ -25,6 +28,7 @@ const AuthPage = () => {
               Войти в систему
             </Text>
             <Button view="outlined-danger" size="xl" onClick={handleGoogle}>
+              {/* <Icon data={} /> */}
               Войти через Google
             </Button>
             <Button
