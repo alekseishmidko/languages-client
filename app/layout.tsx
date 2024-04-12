@@ -21,9 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} min-h-screen bg-green-100`}>
-        <ThemeWrapper>{children}</ThemeWrapper>
-      </body>
+      <ThemeWrapper>
+        <body className={`${inter.className} min-h-screen`}>{children} </body>
+      </ThemeWrapper>
     </html>
   );
 }

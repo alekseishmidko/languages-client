@@ -4,7 +4,7 @@
 
  авторизация через соцсети  использовать firebase использовать мидлвару 
 
- react-hook-form
+react-hook-form
 
 rtk query zustand 
 
