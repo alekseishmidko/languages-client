@@ -19,18 +19,26 @@ export default function Header() {
       className={`flex justify-between items-center p-2   sticky top-0  `}
     >
       <div className="flex space-x-2">
-        <Button size="l" view="flat-success">
-          Глоссарии
-        </Button>
-        <Button size="l" view="flat-success">
-          Списки
-        </Button>
-        <Button size="l" view="flat-success">
-          Курсы
-        </Button>
-        <Button size="l" view="flat-success">
-          Словарь
-        </Button>
+        <Link href={APP_ROUTES.GLOSSARIES}>
+          <Button size="l" view="flat-success">
+            Глоссарии
+          </Button>
+        </Link>
+        <Link href={APP_ROUTES.LISTS}>
+          <Button size="l" view="flat-success">
+            Списки
+          </Button>
+        </Link>
+        <Link href={APP_ROUTES.COURSES}>
+          <Button size="l" view="flat-success">
+            Курсы
+          </Button>
+        </Link>
+        <Link href={APP_ROUTES.DICTIONARY}>
+          <Button size="l" view="flat-success">
+            Словарь
+          </Button>
+        </Link>
       </div>
 
       <div className="flex space-x-4 mr-2">
