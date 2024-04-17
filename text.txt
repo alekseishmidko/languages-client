@@ -4,15 +4,15 @@
 
  авторизация через соцсети  использовать firebase использовать мидлвару 
 
-react-hook-form
+react-hook-form rtk query zustand 
 
-rtk query zustand 
+
 
  lucide-react  sonner 	gravity ui mantine		>>> UI
 
 
  i18next реализовать интернационализацию через  href/lang/content
 
- 2 темы
+ 
 
  back nest sequelize graphql
