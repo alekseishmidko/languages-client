@@ -2,7 +2,7 @@
 import { ThemeProvider } from "@gravity-ui/uikit";
 import React from "react";
 
-import { useStore } from "@/app/store/store";
+import { useStore } from "@/app/utils/store/store";
 
 export type AppProps = {
   children: React.ReactNode;

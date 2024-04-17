@@ -22,23 +22,25 @@ const AuthPage = () => {
       <Header />
       <BackButton />
       <div className="flex justify-center items-center min-h-screen ">
-        <div className="bg-white  px-20 pb-20 pt-8 rounded-xl ">
-          <div className="flex flex-col space-y-6">
-            <Text color="dark-primary" variant="display-2" className="mb-4">
-              Войти в систему
-            </Text>
-            <Button view="outlined-danger" size="xl" onClick={handleGoogle}>
-              {/* <Icon data={} /> */}
-              Войти через Google
-            </Button>
-            <Button
-              view="outlined-info"
-              size="xl"
-              // onClick={handleSignIn("facebook")}
-            >
-              Войти через Facebook
-            </Button>
-          </div>
+        <div className=" px-20 pb-20 pt-8 rounded-xl ">
+          <Card className="p-20" theme="normal" size="l">
+            <div className="flex flex-col   gap-6">
+              <Text variant="display-2" className="mb-6">
+                Войти в систему
+              </Text>
+              <Button view="outlined-danger" size="xl" onClick={handleGoogle}>
+                {/* <Icon data={} /> */}
+                Войти через Google
+              </Button>
+              <Button
+                view="outlined-info"
+                size="xl"
+                // onClick={handleSignIn("facebook")}
+              >
+                Войти через Facebook
+              </Button>
+            </div>
+          </Card>
         </div>
       </div>
     </div>

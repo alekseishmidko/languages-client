@@ -3,7 +3,7 @@
 import React from "react";
 import { Button, Text } from "@gravity-ui/uikit";
 import Link from "next/link";
-import { APP_ROUTES } from "./constants/route.constants";
+import { APP_ROUTES } from "./utils/constants/route.constants";
 import NotFound from "@gravity-ui/illustrations/NotFound";
 const NotFoundPage = () => {
   return (

@@ -2,10 +2,35 @@
 
 import { TextInput } from "@gravity-ui/uikit";
 import Header from "../components/Common/Header/Header";
-import { useStore } from "../store/store";
+import { useStore } from "../utils/store/store";
+import { useForm } from "react-hook-form";
+import { useCallback } from "react";
+import { debounce } from "../utils/helpers/debounce";
+
+type FormData = {
+  word: string;
+};
 
 export default function DictionaryPage() {
   const { theme } = useStore();
+  const {
+    register,
+    setValue,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormData>();
+
+  const handleInputChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      console.log(event.target.value);
+    },
+    []
+  );
+
+  const debouncedInputChange = useCallback(debounce(handleInputChange, 1000), [
+    handleInputChange,
+  ]);
+
   return (
     <div>
       <Header />
@@ -24,16 +49,20 @@ export default function DictionaryPage() {
             определения на английском языке, а также синонимы и антонимы.
           </p>
         </div>
-        {/* debounce */}
+
         <div className="max-w-[600px] mx-auto">
-          <TextInput
-            className={`mt-[38px] rounded-[10px] ${
-              theme === "light" ? "border-2 border-emerald-300 " : "border-2 "
-            }`}
-            placeholder="Начните вводить английское слово"
-            hasClear
-            size="xl"
-          />
+          <form>
+            <TextInput
+              className={`mt-[38px] rounded-[10px] ${
+                theme === "light" ? "border-2 border-emerald-300 " : "border-2 "
+              }`}
+              placeholder="Начните вводить английское слово"
+              hasClear
+              size="xl"
+              {...register("word")}
+              onChange={debouncedInputChange}
+            />
+          </form>
         </div>
       </section>
     </div>
