@@ -1,11 +1,12 @@
 "use client";
 
-import { TextInput } from "@gravity-ui/uikit";
+import { Card, TextInput } from "@gravity-ui/uikit";
 import Header from "../components/Common/Header/Header";
 import { useStore } from "../utils/store/store";
 import { useForm } from "react-hook-form";
 import { useCallback } from "react";
 import { debounce } from "../utils/helpers/debounce";
+import Footer from "../components/Common/Footer/Footer";
 
 type FormData = {
   word: string;
@@ -34,7 +35,7 @@ export default function DictionaryPage() {
   return (
     <div>
       <Header />
-      <section className="max-w-[1240px] mx-auto">
+      <section className="max-w-[1240px] mx-auto ">
         <div className="text-left">
           <h3 className="font-semibold text-2xl mt-[64px]">
             Английский словарь на 180 000 слов
@@ -53,7 +54,7 @@ export default function DictionaryPage() {
         <div className="max-w-[600px] mx-auto">
           <form>
             <TextInput
-              className={`mt-[38px] rounded-[10px] ${
+              className={`mt-[38px] rounded-[10px]   ${
                 theme === "light" ? "border-2 border-emerald-300 " : "border-2 "
               }`}
               placeholder="Начните вводить английское слово"

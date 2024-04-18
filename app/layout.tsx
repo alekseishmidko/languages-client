@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ThemeWrapper>
-        <body className={`${inter.className} min-h-screen`}>{children} </body>
+        <body className={`${inter.className} min-h-screen`}>{children}</body>
       </ThemeWrapper>
     </html>
   );
