@@ -51,7 +51,7 @@ export default function DictionaryPage() {
           </p>
         </div>
 
-        <div className="max-w-[600px] mx-auto">
+        <div className="max-w-[600px]  ">
           <form>
             <TextInput
               className={`mt-[38px] rounded-[10px]   ${
