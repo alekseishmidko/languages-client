@@ -7,10 +7,13 @@ import React from "react";
 import { useStore } from "@/app/utils/store/store";
 import { DARK, LIGHT, THEME } from "@/app/utils/constants/theme.constants";
 import { SquareBracketsLetterA } from "@gravity-ui/icons";
+import Cookies from "js-cookie";
 export default function Header() {
   const { theme, handleTheme } = useStore();
   const onThemeHandle = () => {
+    // Cookies.set(THEME, theme === DARK ? LIGHT : DARK);
     localStorage.setItem(THEME, theme === DARK ? LIGHT : DARK);
+
     handleTheme();
   };
 

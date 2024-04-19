@@ -12,10 +12,10 @@ import {
 import { signInWithPopup } from "firebase/auth";
 import BackButton from "../components/Common/BackButton/BackButton";
 const AuthPage = () => {
-  const handleGoogle = async (e) => {
-    const provider = new GoogleAuthProvider();
-    return signInWithPopup(authFireBase, provider);
-  };
+  // const handleGoogle = async (e) => {
+  //   const provider = new GoogleAuthProvider();
+  //   return signInWithPopup(authFireBase, provider);
+  // };
 
   return (
     <div className="relative">
@@ -28,7 +28,11 @@ const AuthPage = () => {
               <Text variant="display-2" className="mb-6">
                 Войти в систему
               </Text>
-              <Button view="outlined-danger" size="xl" onClick={handleGoogle}>
+              <Button
+                view="outlined-danger"
+                size="xl"
+                // onClick={handleGoogle}
+              >
                 {/* <Icon data={} /> */}
                 Войти через Google
               </Button>

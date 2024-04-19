@@ -6,6 +6,7 @@ import {
   LIGHT,
   THEME,
 } from "../constants/theme.constants";
+import Cookies from "js-cookie";
 
 export interface IStore {
   theme: Theme;
@@ -13,7 +14,9 @@ export interface IStore {
 }
 
 export const useStore = create<IStore>((set) => ({
-  theme: localStorage.getItem(THEME) ?? DEFAULT_THEME,
+  // theme: Cookies.get(THEME) || DEFAULT_THEME,
+  theme: localStorage?.getItem(THEME) ?? DEFAULT_THEME,
+
   handleTheme: () =>
     set((state) => ({ theme: state.theme === DARK ? LIGHT : DARK })),
 }));
