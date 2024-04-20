@@ -4,7 +4,6 @@ import { Inter } from "next/font/google";
 import "@gravity-ui/uikit/styles/fonts.css";
 import "@gravity-ui/uikit/styles/styles.css";
 import "./globals.css";
-
 import { ThemeWrapper } from "./components/ThemeProvider/ThemeProvider";
 
 const inter = Inter({ subsets: ["latin"] });

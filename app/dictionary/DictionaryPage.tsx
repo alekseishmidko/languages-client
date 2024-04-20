@@ -1,12 +1,11 @@
 "use client";
 
 import { Card, TextInput } from "@gravity-ui/uikit";
-import Header from "../components/Common/Header/Header";
-import { useStore } from "../utils/store/store";
 import { useForm } from "react-hook-form";
 import { useCallback } from "react";
-import { debounce } from "../utils/helpers/debounce";
-import Footer from "../components/Common/Footer/Footer";
+import { useStore } from "@/app/utils/store/store";
+import { debounce } from "@/app/utils/helpers/debounce";
+import Header from "@/app/components/Common/Header/Header";
 
 type FormData = {
   word: string;
