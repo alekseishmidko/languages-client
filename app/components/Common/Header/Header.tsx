@@ -8,6 +8,7 @@ import { useStore } from "@/app/utils/store/store";
 import { DARK, LIGHT, THEME } from "@/app/utils/constants/theme.constants";
 import { SquareBracketsLetterA } from "@gravity-ui/icons";
 import Cookies from "js-cookie";
+import LocaleSelector from "../LocaleSelector/LocaleSelector";
 export default function Header() {
   const { theme, handleTheme } = useStore();
   const onThemeHandle = () => {
@@ -54,6 +55,7 @@ export default function Header() {
         <Button size="l" view="normal-contrast" onClick={onThemeHandle}>
           <Icon data={theme === LIGHT ? Sun : Moon} />
         </Button>
+        <LocaleSelector />
         <Link href={APP_ROUTES.AUTH}>
           <Button size="l" pin="round-round" selected view="outlined-success">
             Вход

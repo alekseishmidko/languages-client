@@ -15,6 +15,7 @@ export interface IStore {
 
 export const useStore = create<IStore>((set) => ({
   // theme: Cookies.get(THEME) || DEFAULT_THEME,
+  // theme: localStorage?.getItem(THEME) ?? DEFAULT_THEME,
   theme: localStorage?.getItem(THEME) ?? DEFAULT_THEME,
 
   handleTheme: () =>
