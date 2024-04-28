@@ -1,3 +1,5 @@
+"use client";
+
 import { Theme } from "@gravity-ui/uikit";
 import { create } from "zustand";
 import {
@@ -6,7 +8,6 @@ import {
   LIGHT,
   THEME,
 } from "../constants/theme.constants";
-import Cookies from "js-cookie";
 
 export interface IStore {
   theme: Theme;
