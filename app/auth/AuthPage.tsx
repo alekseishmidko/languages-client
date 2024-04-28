@@ -3,7 +3,7 @@
 import Header from "../components/Common/Header/Header";
 import React from "react";
 import { Button, Card, Icon, Text } from "@gravity-ui/uikit";
-import { authFireBase } from "@/app/api/firebase/index";
+import { auth } from "@/app/utils/firebase/index";
 
 import {
   GoogleAuthProvider,
@@ -12,10 +12,12 @@ import {
 import { signInWithPopup } from "firebase/auth";
 import BackButton from "../components/Common/BackButton/BackButton";
 const AuthPage = () => {
-  // const handleGoogle = async (e) => {
-  //   const provider = new GoogleAuthProvider();
-  //   return signInWithPopup(authFireBase, provider);
-  // };
+  const handleGoogle = async () => {
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider).then((data) => {
+      console.log(data);
+    });
+  };
 
   return (
     <div className="relative">
@@ -28,11 +30,7 @@ const AuthPage = () => {
               <Text variant="display-2" className="mb-6">
                 Войти в систему
               </Text>
-              <Button
-                view="outlined-danger"
-                size="xl"
-                // onClick={handleGoogle}
-              >
+              <Button view="outlined-danger" size="xl" onClick={handleGoogle}>
                 {/* <Icon data={} /> */}
                 Войти через Google
               </Button>
