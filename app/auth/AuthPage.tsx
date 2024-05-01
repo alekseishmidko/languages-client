@@ -4,20 +4,23 @@ import Header from "../components/Common/Header/Header";
 import React from "react";
 import { Button, Card, Icon, Text } from "@gravity-ui/uikit";
 import { auth } from "@/app/utils/firebase/index";
-
-import {
-  GoogleAuthProvider,
-  FacebookAuthProvider,
-} from "firebase/auth/cordova";
-import { signInWithPopup } from "firebase/auth";
+import { EarthoOneProvider, useEarthoOne } from "@eartho/one-client-react";
+// import {
+//   GoogleAuthProvider,
+//   FacebookAuthProvider,
+// } from "firebase/auth/cordova";
+// import { signInWithPopup } from "firebase/auth";
 import BackButton from "../components/Common/BackButton/BackButton";
 const AuthPage = () => {
-  const handleGoogle = async () => {
-    const provider = new GoogleAuthProvider();
-    signInWithPopup(auth, provider).then((data) => {
-      console.log(data);
-    });
-  };
+  // const handleGoogle = async () => {
+  // const provider = new GoogleAuthProvider();
+  // signInWithPopup(auth, provider).then((data) => {
+  //   console.log(data);
+  // });
+  // };
+
+  const { isLoading, isConnected, error, user, connectWithPopup, logout } =
+    useEarthoOne();
 
   return (
     <div className="relative">
@@ -30,14 +33,19 @@ const AuthPage = () => {
               <Text variant="display-2" className="mb-6">
                 Войти в систему
               </Text>
-              <Button view="outlined-danger" size="xl" onClick={handleGoogle}>
+              <Button view="outlined-danger" size="xl">
                 {/* <Icon data={} /> */}
                 Войти через Google
               </Button>
+
               <Button
                 view="outlined-info"
                 size="xl"
-                // onClick={handleSignIn("facebook")}
+                onClick={() =>
+                  connectWithPopup({
+                    accessId: `${process.env.NEXT_PUBLIC_ACCESS_ID}`,
+                  })
+                }
               >
                 Войти через Facebook
               </Button>
