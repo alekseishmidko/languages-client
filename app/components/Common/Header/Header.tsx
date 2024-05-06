@@ -28,34 +28,33 @@ export default function Header() {
   };
   return (
     <header
-      className={`flex justify-between items-center p-2   sticky top-0  `}
+      className={`flex justify-between items-center p-2    sticky top-0  `}
     >
-      <div className="flex space-x-2">
+      <div className="flex space-x-8 items-center">
         <Link href={APP_ROUTES.MAIN}>
-          <Button size="l" view="flat-success">
+          <button className="flex items-center justify-center py-1 pl-2">
             <Icon size={22} data={SquareBracketsLetterA} />
-            Главная
-          </Button>
+          </button>
         </Link>
         <Link href={APP_ROUTES.GLOSSARIES}>
-          <Button size="l" view="flat-success">
+          <button className="flex items-center justify-center py-2">
             Глоссарии
-          </Button>
+          </button>
         </Link>
         <Link href={APP_ROUTES.LISTS}>
-          <Button size="l" view="flat-success">
+          <button className="flex items-center justify-center py-2">
             Списки
-          </Button>
+          </button>
         </Link>
         <Link href={APP_ROUTES.COURSES}>
-          <Button size="l" view="flat-success">
+          <button className="flex items-center justify-center py-2">
             Курсы
-          </Button>
+          </button>
         </Link>
         <Link href={APP_ROUTES.DICTIONARY}>
-          <Button size="l" view="flat-success">
+          <button className="flex items-center justify-center py-2">
             Словарь
-          </Button>
+          </button>
         </Link>
       </div>
 
@@ -104,6 +103,7 @@ export default function Header() {
               onClick={() =>
                 connectWithPopup({
                   accessId: `${process.env.NEXT_PUBLIC_ACCESS_ID}`,
+                  authorizationParams: { max_age: "1m" },
                   enabledAuthProviders: [
                     "facebook",
                     "google",
