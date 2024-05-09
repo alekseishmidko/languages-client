@@ -1,7 +1,6 @@
 "use client";
 
 import { EarthoOneProvider } from "@eartho/one-client-react";
-import React from "react";
 
 export default function AuthLayout({
   children,

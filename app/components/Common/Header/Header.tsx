@@ -1,31 +1,44 @@
 "use client";
-import { Button, Icon, Modal, Theme, Card, Text } from "@gravity-ui/uikit";
-import { Moon, Sun } from "@gravity-ui/icons";
+import { Icon, Modal, Text } from "@gravity-ui/uikit";
 import Link from "next/link";
 import { APP_ROUTES } from "@/app/utils/constants/route.constants";
-import React from "react";
 import { useStore } from "@/app/utils/store/store";
 import { DARK, LIGHT, THEME } from "@/app/utils/constants/theme.constants";
-import { SquareBracketsLetterA } from "@gravity-ui/icons";
-import Cookies from "js-cookie";
 import LocaleSelector from "../LocaleSelector/LocaleSelector";
 import { useEarthoOne } from "@eartho/one-client-react";
 import Spinner from "../Spinner/Spinner";
-import { Person, Xmark, ArrowRightFromSquare } from "@gravity-ui/icons";
+import {
+  Person,
+  Xmark,
+  ArrowRightFromSquare,
+  Moon,
+  Sun,
+  SquareBracketsLetterA,
+} from "@gravity-ui/icons";
+import { PROVIDERS } from "@/app/utils/constants/auth.constants";
+import { useState } from "react";
 export default function Header() {
   const { theme, handleTheme } = useStore();
   const onThemeHandle = () => {
-    // Cookies.set(THEME, theme === DARK ? LIGHT : DARK);
     localStorage.setItem(THEME, theme === DARK ? LIGHT : DARK);
-
     handleTheme();
   };
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const { isLoading, isConnected, error, user, connectWithPopup, logout } =
     useEarthoOne();
   const handleLogout = () => {
     logout().then(() => setOpen(false));
   };
+  const handleLogin = () => {
+    connectWithPopup({
+      accessId: `${process.env.NEXT_PUBLIC_ACCESS_ID}`,
+      authorizationParams: {
+        max_age: "15s",
+      },
+      enabledAuthProviders: [...PROVIDERS],
+    });
+  };
+
   return (
     <header
       className={`flex justify-between items-center p-2    sticky top-0  `}
@@ -75,7 +88,7 @@ export default function Header() {
             <Spinner size={12} />
           ) : (
             <div>
-              <Icon data={Person} />
+              <Icon data={Person} className=" " />
             </div>
           )}
         </button>
@@ -93,34 +106,24 @@ export default function Header() {
           )}
 
           {isConnected ? (
-            <Button view="outlined-info" size="xl" onClick={handleLogout}>
-              Выйти <Icon data={ArrowRightFromSquare} />
-            </Button>
-          ) : (
-            <Button
-              view="outlined-info"
-              size="xl"
-              onClick={() =>
-                connectWithPopup({
-                  accessId: `${process.env.NEXT_PUBLIC_ACCESS_ID}`,
-                  authorizationParams: { max_age: "1m" },
-                  enabledAuthProviders: [
-                    "facebook",
-                    "google",
-                    "github",
-                    "yandex",
-                    "vk",
-                  ],
-                })
-              }
+            <button
+              onClick={handleLogout}
+              className="border-red-500 border flex items-center align-baseline justify-center py-[8px] px-[24px] rounded-lg gap-2"
             >
-              Войти
-            </Button>
+              Выйти <Icon data={ArrowRightFromSquare} />
+            </button>
+          ) : (
+            <button
+              onClick={() => handleLogin()}
+              className="border-red-500 border flex items-center align-baseline justify-center py-[8px] px-[24px] rounded-lg gap-2"
+            >
+              Войти <Icon data={ArrowRightFromSquare} />
+            </button>
           )}
 
           <div
             onClick={() => setOpen(false)}
-            className="absolute right-2 top-2 p-1   cursor-pointer hover:rounded-full  "
+            className="absolute right-2 top-2 p-1  cursor-pointer hover:rounded-full  hover:bg-gray-500 "
           >
             <Icon data={Xmark} />
           </div>
