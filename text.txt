@@ -2,7 +2,7 @@
 
  https://nextjs.org/docs/app/building-your-application/routing 
 
- авторизация через соцсети  использовать firebase использовать мидлвару 
+ авторизация через соцсети   использовать мидлвару 
 
 react-hook-form rtk query zustand 
 
