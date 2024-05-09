@@ -54,7 +54,7 @@ export default function DictionaryPage() {
           <form>
             <TextInput
               className={`mt-[38px] rounded-[10px]   ${
-                theme === "light" ? "border-2 border-emerald-300 " : "border-2 "
+                theme === "light" ? "border  border-emerald-300 " : "border"
               }`}
               placeholder="Начните вводить английское слово"
               hasClear

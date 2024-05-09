@@ -1,9 +1,11 @@
-import { Icon } from "@gravity-ui/uikit";
+import spinner from "@/public/spinner.svg";
 
-import { Star } from "@gravity-ui/icons";
+import Image from "next/image";
 type Props = {
-  size: number;
+  width?: number;
+  height?: number;
 };
-export default function Spinner({ size }: Props) {
-  return <Icon size={size} data={Star} className="animate-spin-slow " />;
+
+export default function Spinner({ width = 24, height = 24 }: Props) {
+  return <Image alt="#" src={spinner} width={width} height={height} />;
 }
