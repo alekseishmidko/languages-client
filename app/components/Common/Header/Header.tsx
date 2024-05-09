@@ -85,7 +85,7 @@ export default function Header() {
           className={`w-8 flex items-center justify-center  `}
         >
           {isLoading ? (
-            <Spinner size={12} />
+            <Spinner />
           ) : (
             <div>
               <Icon data={Person} className=" " />
