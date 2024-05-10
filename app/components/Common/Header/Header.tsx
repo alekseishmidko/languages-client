@@ -11,6 +11,7 @@ import {
   Person,
   Xmark,
   ArrowRightFromSquare,
+  ArrowRightToSquare,
   Moon,
   Sun,
   SquareBracketsLetterA,
@@ -36,7 +37,7 @@ export default function Header() {
         max_age: "15s",
       },
       enabledAuthProviders: [...PROVIDERS],
-    });
+    }).then(() => setOpen(false));
   };
 
   return (
@@ -95,31 +96,25 @@ export default function Header() {
       </div>
       <Modal open={open} onClose={() => setOpen(false)}>
         <div className="flex flex-col   gap-6 p-20  rounded-[16px] relative">
-          {isConnected ? (
-            <Text variant="display-2" className="mb-6">
+          <Text variant="display-2" className="mb-6">
+            {isConnected ? (
               <span>{user?.displayName}</span>
-            </Text>
-          ) : (
-            <Text variant="display-2" className="mb-6">
-              Войти в систему
-            </Text>
-          )}
+            ) : (
+              <span>Войти в систему</span>
+            )}
+          </Text>
 
-          {isConnected ? (
-            <button
-              onClick={handleLogout}
-              className="border-red-500 border flex items-center align-baseline justify-center py-[8px] px-[24px] rounded-lg gap-2"
-            >
-              Выйти <Icon data={ArrowRightFromSquare} />
-            </button>
-          ) : (
-            <button
-              onClick={() => handleLogin()}
-              className="border-red-500 border flex items-center align-baseline justify-center py-[8px] px-[24px] rounded-lg gap-2"
-            >
-              Войти <Icon data={ArrowRightFromSquare} />
-            </button>
-          )}
+          <button
+            onClick={isConnected ? handleLogout : handleLogin}
+            className="border-red-500 border flex items-center align-baseline justify-center py-[8px] px-[24px] rounded-lg gap-2"
+          >
+            <>
+              {isConnected ? "Выйти" : "Войти"}
+              <Icon
+                data={isConnected ? ArrowRightFromSquare : ArrowRightToSquare}
+              />
+            </>
+          </button>
 
           <div
             onClick={() => setOpen(false)}

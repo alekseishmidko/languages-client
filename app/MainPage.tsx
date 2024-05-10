@@ -1,7 +1,8 @@
 "use client";
 
-import { useEarthoOne } from "@eartho/one-client-react";
+import { User, useEarthoOne } from "@eartho/one-client-react";
 import Header from "./components/Common/Header/Header";
+import { useCallback, useState } from "react";
 
 export default function MainPage() {
   const { isLoading, isConnected, error, user, connectWithPopup, logout } =
@@ -15,6 +16,7 @@ export default function MainPage() {
     error,
     user
   );
+
   return (
     <div>
       <Header />
@@ -24,10 +26,6 @@ export default function MainPage() {
           <h3 className="font-semibold text-3xl    my-[24px] ">
             Эффективное запоминание английских слов
           </h3>
-        </div>
-        <div className="grid grid-cols-2 ">
-          <div></div>
-          <div></div>
         </div>
       </section>
     </div>
