@@ -6,3 +6,5 @@ export const PROVIDERS = [
   "vk",
   "twitter",
 ];
+
+export const EnumTokens = { REFRESH_TOKEN: "refreshToken" };

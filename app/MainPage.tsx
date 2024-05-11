@@ -2,7 +2,6 @@
 
 import { User, useEarthoOne } from "@eartho/one-client-react";
 import Header from "./components/Common/Header/Header";
-import { useCallback, useState } from "react";
 
 export default function MainPage() {
   const { isLoading, isConnected, error, user, connectWithPopup, logout } =

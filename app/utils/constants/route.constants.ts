@@ -3,6 +3,6 @@ export const APP_ROUTES = {
   AUTH: "/auth",
   GLOSSARIES: "/glossaries",
   LISTS: "/lists",
-  COURSES: "/courses",
+  COURSES: "/i/courses",
   DICTIONARY: "/dictionary",
 };

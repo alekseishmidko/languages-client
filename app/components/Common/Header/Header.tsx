@@ -18,6 +18,7 @@ import {
 } from "@gravity-ui/icons";
 import { PROVIDERS } from "@/app/utils/constants/auth.constants";
 import { useState } from "react";
+import { toast } from "sonner";
 export default function Header() {
   const { theme, handleTheme } = useStore();
   const onThemeHandle = () => {
@@ -28,7 +29,9 @@ export default function Header() {
   const { isLoading, isConnected, error, user, connectWithPopup, logout } =
     useEarthoOne();
   const handleLogout = () => {
-    logout().then(() => setOpen(false));
+    logout()
+      .then(() => setOpen(false))
+      .finally(() => toast.warning("logout!"));
   };
   const handleLogin = () => {
     connectWithPopup({
@@ -37,7 +40,9 @@ export default function Header() {
         max_age: "15s",
       },
       enabledAuthProviders: [...PROVIDERS],
-    }).then(() => setOpen(false));
+    })
+      .then(() => setOpen(false))
+      .finally(() => toast.info("Successfully login!"));
   };
 
   return (
