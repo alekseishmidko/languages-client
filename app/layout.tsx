@@ -5,6 +5,7 @@ import "@gravity-ui/uikit/styles/styles.css";
 import "./globals.css";
 import { ThemeWrapper } from "./components/ThemeProvider/ThemeProvider";
 import AuthLayout from "./components/Layouts/AuthLayout";
+import { Toaster } from "sonner";
 
 const inter = Rubik({ subsets: ["latin"] });
 
@@ -22,7 +23,13 @@ export default function RootLayout({
     <AuthLayout>
       <html lang="en">
         <ThemeWrapper>
-          <body className={`${inter.className} min-h-screen`}>{children}</body>
+          <body className={`${inter.className} min-h-screen`}>{children}</body>{" "}
+          <Toaster
+            theme={"dark"}
+            position="bottom-right"
+            duration={2000}
+            richColors
+          />
         </ThemeWrapper>
       </html>
     </AuthLayout>

@@ -1,0 +1,12 @@
+{
+  "h1": "Letter Collector",
+  "subTitle": "Эффективное запоминание английских слов",
+
+  "header": {
+    "glossaries": "Глоссарии",
+    "lists": "Списки",
+    "courses": "Курсы",
+    "dictionary": "Словарь"
+  },
+  "auth": { "login": "Войти", "logout": "Выйти" }
+}
