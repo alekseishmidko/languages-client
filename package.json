@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@eartho/one-client-react": "^2.0.12",
+    "cookie": "^0.6.0",
     "dotenv": "^16.4.5",
     "firebase": "^10.10.0",
     "i18next": "^23.11.4",

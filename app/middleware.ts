@@ -1,31 +1,13 @@
-import { NextRequest, NextResponse } from "next/server";
-import { APP_ROUTES } from "./utils/constants/route.constants";
-import { EnumTokens } from "./utils/constants/auth.constants";
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 
-export async function middleware(request: NextRequest, response: NextResponse) {
-  // const { url, cookies } = request;
-
-  // const refreshToken = cookies.get(EnumTokens.REFRESH_TOKEN)?.value;
-
-  console.log("refreshToken", request);
-
-  //   const isAuthPage = url.includes("/auth");
-
-  //   if (isAuthPage && refreshToken) {
-  //     return NextResponse.redirect(new URL(APP_ROUTES.MAIN, url));
-  //   }
-
-  //   if (isAuthPage) {
-  //     return NextResponse.next();
-  //   }
-
-  //   if (!refreshToken) {
-  //     return NextResponse.redirect(new URL("/auth", request.url));
-  //   }
-
-  // return NextResponse.next();
+// This function can be marked `async` if using `await` inside
+export function middleware(request: NextRequest) {
+  console.log(request);
+  return NextResponse.redirect(new URL("/home", request.url));
 }
 
-// export const config = {
-// 	matcher: ['/i/:path*', '/auth/:path']
-// }
+// See "Matching Paths" below to learn more
+export const config = {
+  matcher: "/about/:path*",
+};
