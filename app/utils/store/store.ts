@@ -18,7 +18,7 @@ export interface IStore {
 export const useStore = create<IStore>((set) => ({
   // theme: Cookies.get(THEME) || DEFAULT_THEME,
   // theme: localStorage?.getItem(THEME) ?? DEFAULT_THEME,
-  theme: (localStorage && localStorage?.getItem(THEME)) ?? DEFAULT_THEME,
+  theme: DEFAULT_THEME,
   isClient: true,
   handleTheme: () =>
     set((state) => ({ theme: state.theme === DARK ? LIGHT : DARK })),

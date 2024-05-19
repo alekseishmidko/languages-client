@@ -18,7 +18,7 @@ export default function MainPage() {
 
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <section className="max-w-[1240px] mx-auto">
         <div className="text-center flex justify-center flex-col mx-auto">
           <h1 className="font-bold text-5xl  mt-[64px]  ">Letter Collector</h1>
