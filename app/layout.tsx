@@ -6,7 +6,7 @@ import "./globals.css";
 import { ThemeWrapper } from "./components/ThemeProvider/ThemeProvider";
 import AuthLayout from "./components/Layouts/AuthLayout";
 import { Toaster } from "sonner";
-import { DEFAULT_THEME } from "./utils/constants/theme.constants";
+import { DARK, DEFAULT_THEME, LIGHT } from "./utils/constants/theme.constants";
 import { cookies } from "next/headers";
 import Header from "./components/Common/Header/Header";
 const inter = Rubik({ subsets: ["latin"] });
@@ -18,24 +18,26 @@ export default function RootLayout({
 }>) {
   const cookieStore = cookies();
   const theme = (cookieStore.get("theme") ?? DEFAULT_THEME) as string;
-
+  const handleTheme = () => {
+    cookieStore.set("theme", theme === LIGHT ? DARK : LIGHT);
+  };
   return (
-    <AuthLayout>
-      <html lang="en">
+    <html lang="en">
+      <AuthLayout>
         <ThemeWrapper theme={theme}>
-          <body className={`${inter.className} min-h-screen`}>
+          <body className={`  min-h-screen`}>
             <Header theme={theme} />
             {children}
-          </body>{" "}
+          </body>
           <Toaster
             theme={"dark"}
             position="bottom-right"
             duration={2000}
             richColors
           />
-        </ThemeWrapper>
-      </html>
-    </AuthLayout>
+        </ThemeWrapper>{" "}
+      </AuthLayout>
+    </html>
   );
 }
 

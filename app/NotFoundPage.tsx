@@ -10,7 +10,6 @@ import notFound from "@/public/404.svg";
 const NotFoundPage = () => {
   return (
     <div className="">
-      <Header />
       <div className={`flex justify-center items-center min-h-screen  `}>
         <div className="  flex flex-col items-center ">
           <Image width={400} height={300} src={notFound} alt="404" />

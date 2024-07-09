@@ -33,7 +33,6 @@ export default function DictionaryPage() {
 
   return (
     <div>
-      <Header />
       <section className="max-w-[1240px] mx-auto ">
         <div className="text-left">
           <h3 className="font-semibold text-2xl mt-[64px]">

@@ -1,3 +1,4 @@
+"use client";
 import { Icon, Modal, Text } from "@gravity-ui/uikit";
 import Link from "next/link";
 import { APP_ROUTES } from "@/app/utils/constants/route.constants";
@@ -23,16 +24,16 @@ import {
 import { PROVIDERS } from "@/app/utils/constants/auth.constants";
 import { useState } from "react";
 import { toast } from "sonner";
-import { cookies } from "next/headers";
+// import { cookies } from "next/headers";
 
 type Props = { theme: string };
 export default function Header({ theme }: Props) {
-  const cookieStore = cookies();
+  // const cookieStore = cookies();
   // const theme = (cookieStore.get("theme") ?? DEFAULT_THEME) as string;
   // const { theme, handleTheme } = useStore();
   const onThemeHandle = () => {
-    // localStorage.setItem(THEME, theme === DARK ? LIGHT : DARK);
-    cookieStore.set(THEME, theme === LIGHT ? DARK : LIGHT);
+    //   // localStorage.setItem(THEME, theme === DARK ? LIGHT : DARK);
+    //   cookieStore.set(THEME, theme === LIGHT ? DARK : LIGHT);
     // handleTheme();
   };
   const [open, setOpen] = useState(false);

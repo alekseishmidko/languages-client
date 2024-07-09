@@ -1,5 +1,10 @@
+import TradingView from "@/app/components/TradingView/TradingView";
 import React from "react";
 
 export default function page() {
-  return <div>111</div>;
+  return (
+    <div>
+      <TradingView />
+    </div>
+  );
 }
